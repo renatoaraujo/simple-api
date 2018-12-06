@@ -23,4 +23,9 @@ final class PersonService implements PersonServiceInterface
     {
         return new Person();
     }
+
+    public function updatePersonFromPayloadWithUuid(array $payload, UuidInterface $uuid): Person
+    {
+        return new Person();
+    }
 }
