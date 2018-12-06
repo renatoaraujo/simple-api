@@ -18,7 +18,7 @@ final class ViewPersonHttpTest extends WebTestCase
         $this->client = static::createClient();
     }
 
-    public function testListPersonWithSuccess()
+    public function testViewPersonWithSuccess()
     {
         $randomUuid = Uuid::uuid4();
         $headers = ['content-type' => 'application/json'];
