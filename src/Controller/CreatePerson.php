@@ -45,6 +45,6 @@ final class CreatePerson
 
         $person = $this->service->createPersonFromPayload($payload);
         $data = $this->serializer->serialize($person, 'json');
-        return new JsonResponse($data, JsonResponse::HTTP_CREATED);
+        return new JsonResponse($data, JsonResponse::HTTP_CREATED, ['Content-Type', 'application/json'], true);
     }
 }

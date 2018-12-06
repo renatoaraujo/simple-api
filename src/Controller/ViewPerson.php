@@ -30,6 +30,6 @@ final class ViewPerson
 
         $loadedPersons = $this->service->loadPersonByUuid($uuid);
         $data = $this->serializer->serialize($loadedPersons, 'json');
-        return new JsonResponse($data, JsonResponse::HTTP_OK);
+        return new JsonResponse($data, JsonResponse::HTTP_OK, ['Content-Type', 'application/json'], true);
     }
 }

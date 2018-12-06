@@ -37,7 +37,7 @@ final class ExceptionSubscriber implements EventSubscriberInterface
             $statusCode = $exception->getStatusCode();
         }
 
-        if ($statusCode < 400 && $statusCode > 599) {
+        if ($statusCode < 400 || $statusCode > 599) {
             $statusCode = 500;
         }
 

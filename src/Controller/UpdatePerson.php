@@ -48,6 +48,6 @@ final class UpdatePerson
 
         $person = $this->service->updatePersonFromPayloadWithUuid($payload, $uuid);
         $data = $this->serializer->serialize($person, 'json');
-        return new JsonResponse($data, JsonResponse::HTTP_OK);
+        return new JsonResponse($data, JsonResponse::HTTP_OK, ['Content-Type', 'application/json'], true);
     }
 }
