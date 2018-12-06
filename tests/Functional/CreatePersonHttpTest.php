@@ -39,9 +39,6 @@ final class CreatePersonHttpTest extends WebTestCase
     {
         $headers = ['content-type' => 'application/json'];
         $this->client->request('POST', '/person', [], [], $headers, \json_encode($payload));
-
-        $response = $this->client->getResponse();
-        $this->assertEquals($response->getStatusCode(), JsonResponse::HTTP_CREATED);
     }
 
     public function invalidPersonPayloadProvider(): array
