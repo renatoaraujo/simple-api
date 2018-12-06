@@ -1,0 +1,4 @@
+person.list:
+  path: /person
+  methods: [GET]
+  controller: App\Controller\ListPerson
