@@ -28,4 +28,8 @@ final class PersonService implements PersonServiceInterface
     {
         return new Person();
     }
+
+    public function deletePersonFromUuid(UuidInterface $uuid): void
+    {
+    }
 }

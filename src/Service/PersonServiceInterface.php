@@ -16,4 +16,6 @@ interface PersonServiceInterface
     public function createPersonFromPayload(array $payload): Person;
 
     public function updatePersonFromPayloadWithUuid(array $payload, UuidInterface $uuid): Person;
+
+    public function deletePersonFromUuid(UuidInterface $uuid): void;
 }
