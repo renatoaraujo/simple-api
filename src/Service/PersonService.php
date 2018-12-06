@@ -18,4 +18,9 @@ final class PersonService implements PersonServiceInterface
     {
         return new Person();
     }
+
+    public function createPersonFromPayload(array $payload): Person
+    {
+        return new Person();
+    }
 }

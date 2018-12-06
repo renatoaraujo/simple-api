@@ -12,4 +12,6 @@ interface PersonServiceInterface
     public function loadPersons(): PersonList;
 
     public function loadPersonByUuid(UuidInterface $uuid): Person;
+
+    public function createPersonFromPayload(array $payload): Person;
 }
