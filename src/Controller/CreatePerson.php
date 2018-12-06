@@ -43,8 +43,8 @@ final class CreatePerson
             throw new BadRequestHttpException('Missing person birth date.');
         }
 
-        $loadedPersons = $this->service->createPersonFromPayload($payload);
-        $data = $this->serializer->serialize($loadedPersons, 'json');
+        $person = $this->service->createPersonFromPayload($payload);
+        $data = $this->serializer->serialize($person, 'json');
         return new JsonResponse($data, JsonResponse::HTTP_CREATED);
     }
 }
