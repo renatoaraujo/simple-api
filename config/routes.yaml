@@ -2,3 +2,23 @@ person.list:
   path: /person
   methods: [GET]
   controller: App\Controller\ListPerson
+
+person.view:
+  path: /person/{id}
+  methods: [GET]
+  controller: App\Controller\ViewPerson
+
+person.create:
+  path: /person
+  methods: [POST]
+  controller: App\Controller\CreatePerson
+
+person.update:
+  path: /person/{id}
+  methods: [PUT]
+  controller: App\Controller\UpdatePerson
+
+person.delete:
+  path: /person/{id}
+  methods: [DELETE]
+  controller: App\Controller\DeletePerson
