@@ -33,12 +33,13 @@ final class CreatePersonHttpTest extends WebTestCase
 
     /**
      * @dataProvider invalidPersonPayloadProvider
-     * @expectedException \Symfony\Component\HttpKernel\Exception\BadRequestHttpException
      */
     public function testCreatePersonWithInvalidPayloadFail(array $payload)
     {
         $headers = ['content-type' => 'application/json'];
         $this->client->request('POST', '/person', [], [], $headers, \json_encode($payload));
+
+        $this->assertEquals($this->client->getResponse()->getStatusCode(), JsonResponse::HTTP_BAD_REQUEST);
     }
 
     public function invalidPersonPayloadProvider(): array

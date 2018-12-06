@@ -43,7 +43,6 @@ final class UpdatePersonHttpTest extends WebTestCase
 
     /**
      * @dataProvider invalidPersonPayloadProvider
-     * @expectedException \Symfony\Component\HttpKernel\Exception\BadRequestHttpException
      */
     public function testUpdatePersonWithInvalidPayloadFail(array $payload)
     {
@@ -58,6 +57,8 @@ final class UpdatePersonHttpTest extends WebTestCase
             $headers,
             \json_encode($payload)
         );
+
+        $this->assertEquals($this->client->getResponse()->getStatusCode(), JsonResponse::HTTP_BAD_REQUEST);
     }
 
     public function invalidPersonPayloadProvider(): array
