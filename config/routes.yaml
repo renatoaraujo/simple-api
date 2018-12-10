@@ -1,24 +1,27 @@
-person.list:
-  path: /person
+api_person_list:
+  path: /api/person
   methods: [GET]
   controller: App\Controller\ListPerson
 
-person.view:
-  path: /person/{id}
+api_person_view:
+  path: /api/person/{id}
   methods: [GET]
   controller: App\Controller\ViewPerson
 
-person.create:
-  path: /person
+api_person_create:
+  path: /api/person
   methods: [POST]
   controller: App\Controller\CreatePerson
 
-person.update:
-  path: /person/{id}
+api_person_update:
+  path: /api/person/{id}
   methods: [PUT]
   controller: App\Controller\UpdatePerson
 
-person.delete:
-  path: /person/{id}
+api_person_delete:
+  path: /api/person/{id}
   methods: [DELETE]
   controller: App\Controller\DeletePerson
+
+api_login_check:
+  path: /api/login_check
