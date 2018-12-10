@@ -1,0 +1,300 @@
+{
+	"info": {
+		"_postman_id": "96a2b308-f235-4077-9515-1079615de76f",
+		"name": "Home24",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Person",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1NDQ0MzY0MzEsImV4cCI6MTU0NDUzNjQzMCwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoiam9obi5kb2VAbG9jYWxob3N0LmxvY2FsIn0.arC8HJK3rSuOe8Nk1CwI9cG2rY5Vo8073iQ6WEgbmGNRuvc8SGCyVjn1WOI6x3kjlpVFerY8J8MIRSMqj93JtUd6x9xa6FSWVMHrDW9sasY3tMLR68Lf84WdraWFvoTOmWF9Cllltx1zU5XGxffigEiQdezckzy0azT87N5WYFesnh6Pc5z9XggMtXWncpy61WMtT8dcbgBxFllNeS4Rcs6O0WfywWc8x-h69O286RcE4eMSZQqjq8AXuqoU0C4Ofn_7B1FAISJacpGVi2KCsubh0eeQR8gNfGlcytVK46pY5DU-pXigS8GY3S4ruiNN-fFADfQ8K8lCel9wiLMKhhRCHNWoXrm0eCP3CZzZryCAv90JP41b568hXUuNaXGtN9DP1a_c7EqHi7yDw0Ez2kDmXxOLZ32GpAMF9gz_Flh3-tbZGFnMrne6oqkocFcG5veR-Na7AdOJtGMaUfXIaKNJBNE4nuJZi_vbXGSOZ0FV8cfypTkuO9pI1QbB_GBZzGKCGQpND-N0-D-FVxsyirB-Z1DN-OBOdIB29m1DcZ6UWIihAGx_QJkmXZgsyvE183gnqNXVQhv8Z0_RX5wTZqHmKXL0zd2oWigVieo4w1DvNIWuzBdPIzXJsY_6Wv_UJE5Gg9Bggi4ahEDFyydpNJgMAvB_3hJi9rqbjDGkHz4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Renato Araujo\",\n\t\"email\": \"renato.r.araujo@gmail.com.br\",\n\t\"birth_date\": \"20/01/1992\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/person",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"person"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List person",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1NDQ0MzY0MzEsImV4cCI6MTU0NDUzNjQzMCwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoiam9obi5kb2VAbG9jYWxob3N0LmxvY2FsIn0.arC8HJK3rSuOe8Nk1CwI9cG2rY5Vo8073iQ6WEgbmGNRuvc8SGCyVjn1WOI6x3kjlpVFerY8J8MIRSMqj93JtUd6x9xa6FSWVMHrDW9sasY3tMLR68Lf84WdraWFvoTOmWF9Cllltx1zU5XGxffigEiQdezckzy0azT87N5WYFesnh6Pc5z9XggMtXWncpy61WMtT8dcbgBxFllNeS4Rcs6O0WfywWc8x-h69O286RcE4eMSZQqjq8AXuqoU0C4Ofn_7B1FAISJacpGVi2KCsubh0eeQR8gNfGlcytVK46pY5DU-pXigS8GY3S4ruiNN-fFADfQ8K8lCel9wiLMKhhRCHNWoXrm0eCP3CZzZryCAv90JP41b568hXUuNaXGtN9DP1a_c7EqHi7yDw0Ez2kDmXxOLZ32GpAMF9gz_Flh3-tbZGFnMrne6oqkocFcG5veR-Na7AdOJtGMaUfXIaKNJBNE4nuJZi_vbXGSOZ0FV8cfypTkuO9pI1QbB_GBZzGKCGQpND-N0-D-FVxsyirB-Z1DN-OBOdIB29m1DcZ6UWIihAGx_QJkmXZgsyvE183gnqNXVQhv8Z0_RX5wTZqHmKXL0zd2oWigVieo4w1DvNIWuzBdPIzXJsY_6Wv_UJE5Gg9Bggi4ahEDFyydpNJgMAvB_3hJi9rqbjDGkHz4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/person",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"person"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Person",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1NDQ0MzY0MzEsImV4cCI6MTU0NDUzNjQzMCwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoiam9obi5kb2VAbG9jYWxob3N0LmxvY2FsIn0.arC8HJK3rSuOe8Nk1CwI9cG2rY5Vo8073iQ6WEgbmGNRuvc8SGCyVjn1WOI6x3kjlpVFerY8J8MIRSMqj93JtUd6x9xa6FSWVMHrDW9sasY3tMLR68Lf84WdraWFvoTOmWF9Cllltx1zU5XGxffigEiQdezckzy0azT87N5WYFesnh6Pc5z9XggMtXWncpy61WMtT8dcbgBxFllNeS4Rcs6O0WfywWc8x-h69O286RcE4eMSZQqjq8AXuqoU0C4Ofn_7B1FAISJacpGVi2KCsubh0eeQR8gNfGlcytVK46pY5DU-pXigS8GY3S4ruiNN-fFADfQ8K8lCel9wiLMKhhRCHNWoXrm0eCP3CZzZryCAv90JP41b568hXUuNaXGtN9DP1a_c7EqHi7yDw0Ez2kDmXxOLZ32GpAMF9gz_Flh3-tbZGFnMrne6oqkocFcG5veR-Na7AdOJtGMaUfXIaKNJBNE4nuJZi_vbXGSOZ0FV8cfypTkuO9pI1QbB_GBZzGKCGQpND-N0-D-FVxsyirB-Z1DN-OBOdIB29m1DcZ6UWIihAGx_QJkmXZgsyvE183gnqNXVQhv8Z0_RX5wTZqHmKXL0zd2oWigVieo4w1DvNIWuzBdPIzXJsY_6Wv_UJE5Gg9Bggi4ahEDFyydpNJgMAvB_3hJi9rqbjDGkHz4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Renato Araujo\",\n\t\"email\": \"renato.r.araujo@gmail.com\",\n\t\"birth_date\": \"20/01/1991\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/person/2fe674bf-ce18-401d-b663-a437b8a692d7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"person",
+						"2fe674bf-ce18-401d-b663-a437b8a692d7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Person",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1NDQ0MzY0MzEsImV4cCI6MTU0NDUzNjQzMCwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoiam9obi5kb2VAbG9jYWxob3N0LmxvY2FsIn0.arC8HJK3rSuOe8Nk1CwI9cG2rY5Vo8073iQ6WEgbmGNRuvc8SGCyVjn1WOI6x3kjlpVFerY8J8MIRSMqj93JtUd6x9xa6FSWVMHrDW9sasY3tMLR68Lf84WdraWFvoTOmWF9Cllltx1zU5XGxffigEiQdezckzy0azT87N5WYFesnh6Pc5z9XggMtXWncpy61WMtT8dcbgBxFllNeS4Rcs6O0WfywWc8x-h69O286RcE4eMSZQqjq8AXuqoU0C4Ofn_7B1FAISJacpGVi2KCsubh0eeQR8gNfGlcytVK46pY5DU-pXigS8GY3S4ruiNN-fFADfQ8K8lCel9wiLMKhhRCHNWoXrm0eCP3CZzZryCAv90JP41b568hXUuNaXGtN9DP1a_c7EqHi7yDw0Ez2kDmXxOLZ32GpAMF9gz_Flh3-tbZGFnMrne6oqkocFcG5veR-Na7AdOJtGMaUfXIaKNJBNE4nuJZi_vbXGSOZ0FV8cfypTkuO9pI1QbB_GBZzGKCGQpND-N0-D-FVxsyirB-Z1DN-OBOdIB29m1DcZ6UWIihAGx_QJkmXZgsyvE183gnqNXVQhv8Z0_RX5wTZqHmKXL0zd2oWigVieo4w1DvNIWuzBdPIzXJsY_6Wv_UJE5Gg9Bggi4ahEDFyydpNJgMAvB_3hJi9rqbjDGkHz4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/person/2fe674bf-ce18-401d-b663-a437b8a692d7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"person",
+						"2fe674bf-ce18-401d-b663-a437b8a692d7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View Person",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1NDQ0MzY0MzEsImV4cCI6MTU0NDUzNjQzMCwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoiam9obi5kb2VAbG9jYWxob3N0LmxvY2FsIn0.arC8HJK3rSuOe8Nk1CwI9cG2rY5Vo8073iQ6WEgbmGNRuvc8SGCyVjn1WOI6x3kjlpVFerY8J8MIRSMqj93JtUd6x9xa6FSWVMHrDW9sasY3tMLR68Lf84WdraWFvoTOmWF9Cllltx1zU5XGxffigEiQdezckzy0azT87N5WYFesnh6Pc5z9XggMtXWncpy61WMtT8dcbgBxFllNeS4Rcs6O0WfywWc8x-h69O286RcE4eMSZQqjq8AXuqoU0C4Ofn_7B1FAISJacpGVi2KCsubh0eeQR8gNfGlcytVK46pY5DU-pXigS8GY3S4ruiNN-fFADfQ8K8lCel9wiLMKhhRCHNWoXrm0eCP3CZzZryCAv90JP41b568hXUuNaXGtN9DP1a_c7EqHi7yDw0Ez2kDmXxOLZ32GpAMF9gz_Flh3-tbZGFnMrne6oqkocFcG5veR-Na7AdOJtGMaUfXIaKNJBNE4nuJZi_vbXGSOZ0FV8cfypTkuO9pI1QbB_GBZzGKCGQpND-N0-D-FVxsyirB-Z1DN-OBOdIB29m1DcZ6UWIihAGx_QJkmXZgsyvE183gnqNXVQhv8Z0_RX5wTZqHmKXL0zd2oWigVieo4w1DvNIWuzBdPIzXJsY_6Wv_UJE5Gg9Bggi4ahEDFyydpNJgMAvB_3hJi9rqbjDGkHz4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/person/51a6e34e-d712-4937-860b-a787f1ae0f4e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"person",
+						"51a6e34e-d712-4937-860b-a787f1ae0f4e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"john.doe@localhost.local\",\n\t\"password\": \"VeryDifficultPassword!\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Account",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE1NDQ0MzY0MzEsImV4cCI6MTU0NDUzNjQzMCwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoiam9obi5kb2VAbG9jYWxob3N0LmxvY2FsIn0.arC8HJK3rSuOe8Nk1CwI9cG2rY5Vo8073iQ6WEgbmGNRuvc8SGCyVjn1WOI6x3kjlpVFerY8J8MIRSMqj93JtUd6x9xa6FSWVMHrDW9sasY3tMLR68Lf84WdraWFvoTOmWF9Cllltx1zU5XGxffigEiQdezckzy0azT87N5WYFesnh6Pc5z9XggMtXWncpy61WMtT8dcbgBxFllNeS4Rcs6O0WfywWc8x-h69O286RcE4eMSZQqjq8AXuqoU0C4Ofn_7B1FAISJacpGVi2KCsubh0eeQR8gNfGlcytVK46pY5DU-pXigS8GY3S4ruiNN-fFADfQ8K8lCel9wiLMKhhRCHNWoXrm0eCP3CZzZryCAv90JP41b568hXUuNaXGtN9DP1a_c7EqHi7yDw0Ez2kDmXxOLZ32GpAMF9gz_Flh3-tbZGFnMrne6oqkocFcG5veR-Na7AdOJtGMaUfXIaKNJBNE4nuJZi_vbXGSOZ0FV8cfypTkuO9pI1QbB_GBZzGKCGQpND-N0-D-FVxsyirB-Z1DN-OBOdIB29m1DcZ6UWIihAGx_QJkmXZgsyvE183gnqNXVQhv8Z0_RX5wTZqHmKXL0zd2oWigVieo4w1DvNIWuzBdPIzXJsY_6Wv_UJE5Gg9Bggi4ahEDFyydpNJgMAvB_3hJi9rqbjDGkHz4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/account",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"account"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

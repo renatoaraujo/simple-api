@@ -1,5 +1,5 @@
 .PHONY: setup
-setup: build up vendor clear-cache stats
+setup: build up vendor clear-cache test stats
 
 .PHONY: build
 build:
