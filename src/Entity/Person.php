@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="person")
  */
-final class Person
+class Person
 {
     /**
      * @var \Ramsey\Uuid\UuidInterface

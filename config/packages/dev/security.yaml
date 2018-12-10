@@ -1,0 +1,11 @@
+security:
+
+  encoders:
+    App\Entity\User:
+      algorithm: bcrypt
+
+  providers:
+    doctrine_entity_provider:
+      entity:
+        class: App\Entity\User
+        property: email

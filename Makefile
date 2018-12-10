@@ -29,12 +29,23 @@ migrations:
 migrate:
 	docker-compose exec app bin/console doctrine:migrations:migrate -n
 
+.PHONY: purge-data
+purge-data:
+	docker-compose exec app bin/console doctrine:database:drop --force
+	docker-compose exec app bin/console doctrine:database:create
+
 .PHONY: load-data
 load-data:
 	docker-compose exec app bin/console doctrine:fixtures:load -n
 
 .PHONY: db
 db: migrate load-data
+
+.PHONY: reload-db
+reload-db: purge-data migrate load-data
+
+.PHONY: fresh-migrations
+fresh-migrations: purge-data migrations migrate load-data
 
 .PHONY: stats
 stats:
