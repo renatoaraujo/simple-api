@@ -10,7 +10,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * @ORM\Entity
  * @ORM\Table(name="users")
  */
-class User implements UserInterface, \Serializable
+class User implements UserInterface, \JsonSerializable
 {
     /**
      * @var \Ramsey\Uuid\UuidInterface
@@ -122,27 +122,14 @@ class User implements UserInterface, \Serializable
     {
     }
 
-    public function serialize()
+    public function jsonSerialize()
     {
-        return serialize([
-            $this->id,
-            $this->name,
-            $this->email,
-            $this->password,
-            $this->isActive,
-            $this->registeredAt,
-        ]);
-    }
-
-    public function unserialize($serialized)
-    {
-        list (
-            $this->id,
-            $this->name,
-            $this->email,
-            $this->password,
-            $this->isActive,
-            $this->registeredAt
-            ) = unserialize($serialized, ['allowed_classes' => false]);
+        return [
+            'id' => $this->getId(),
+            'name' => $this->getName(),
+            'email' => $this->getUsername(),
+            'status' => ($this->isActive ? 'Active' : 'Inactive'),
+            'registered_at' => $this->getRegisteredAt()->format('d/m/Y')
+        ];
     }
 }
