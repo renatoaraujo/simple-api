@@ -23,7 +23,7 @@ final class ListPerson
 
     public function __invoke()
     {
-        $loadedPersons = $this->service->loadPersons();
+        $loadedPersons = $this->service->loadPersonList();
         $data = $this->serializer->serialize($loadedPersons, 'json');
         return new JsonResponse($data, JsonResponse::HTTP_OK, ['Content-Type', 'application/json'], true);
     }

@@ -19,7 +19,7 @@ vendor:
 
 .PHONY: test
 test:
-	docker-compose exec app bin/phpunit -c phpunit.xml
+	docker-compose exec app bin/phpunit -c phpunit.xml --stop-on-failure
 
 .PHONY: migrations
 migrations:

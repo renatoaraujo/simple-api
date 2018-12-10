@@ -8,7 +8,7 @@ use Ramsey\Uuid\UuidInterface;
 
 interface PersonServiceInterface
 {
-    public function loadPersons(): array;
+    public function loadPersonList(): array;
 
     public function loadPersonByUuid(UuidInterface $uuid): Person;
 

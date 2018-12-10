@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Ramsey\Uuid\UuidInterface;
 
 /**
  * @ORM\Entity
@@ -16,8 +17,6 @@ class Person
      *
      * @ORM\Id
      * @ORM\Column(type="uuid", unique=true)
-     * @ORM\GeneratedValue(strategy="CUSTOM")
-     * @ORM\CustomIdGenerator(class="Ramsey\Uuid\Doctrine\UuidGenerator")
      */
     private $id;
 
@@ -49,12 +48,13 @@ class Person
      */
     private $createdAt;
 
-    public function __construct()
+    public function __construct(UuidInterface $uuid)
     {
-        $this->createdAt = new \DateTime('now');
+        $this->id = $uuid;
+        $this->createdAt = new \DateTimeImmutable('now');
     }
 
-    public function getId(): \Ramsey\Uuid\UuidInterface
+    public function getId(): UuidInterface
     {
         return $this->id;
     }

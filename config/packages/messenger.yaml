@@ -1,7 +1,0 @@
-framework:
-  messenger:
-    transports:
-    # amqp: '%env(MESSENGER_TRANSPORT_DSN)%'
-
-    routing:
-    # 'App\Message\YourMessage': amqp

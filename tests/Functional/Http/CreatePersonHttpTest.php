@@ -1,45 +1,47 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Tests\Functional;
+namespace App\Tests\Functional\Http;
 
-use Symfony\Bundle\FrameworkBundle\Client;
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use App\Tests\Functional\AbstractFunctionalTests;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
-final class CreatePersonHttpTest extends WebTestCase
+final class CreatePersonTest extends AbstractFunctionalTests
 {
-    /** @var Client */
-    private $client;
-
-    protected function setUp()
-    {
-        $this->client = static::createClient();
-    }
-
     public function testCreatePersonWithSuccess()
     {
+        $client = $this->getAuthenticatedClient();
         $headers = ['content-type' => 'application/json'];
-        $payload = [
+        $client->request('POST', '/api/person', [], [], $headers, \json_encode([
             'name' => 'John Doe',
             'email' => 'john.doe@localhost.test',
             'birth_date' => '10/10/1989'
-        ];
-        $this->client->request('POST', '/person', [], [], $headers, \json_encode($payload));
+        ]));
 
-        $response = $this->client->getResponse();
+        $response = $client->getResponse();
         $this->assertEquals($response->getStatusCode(), JsonResponse::HTTP_CREATED);
     }
 
     /**
      * @dataProvider invalidPersonPayloadProvider
      */
-    public function testCreatePersonWithInvalidPayloadFail(array $payload)
+    public function testCreatePersonWithInvalidPayloadFails(array $payload)
     {
+        $client = $this->getAuthenticatedClient();
         $headers = ['content-type' => 'application/json'];
-        $this->client->request('POST', '/person', [], [], $headers, \json_encode($payload));
+        $client->request('POST', '/api/person', [], [], $headers, \json_encode($payload));
 
-        $this->assertEquals($this->client->getResponse()->getStatusCode(), JsonResponse::HTTP_BAD_REQUEST);
+        $this->assertEquals($client->getResponse()->getStatusCode(), JsonResponse::HTTP_BAD_REQUEST);
+    }
+
+    public function testCreatePersonWithoutJWTTokenFails()
+    {
+        $client = $this->getUnauthenticatedClient();
+        $headers = ['content-type' => 'application/json'];
+        $client->request('POST', '/api/person', [], [], $headers);
+
+        $response = $client->getResponse();
+        $this->assertEquals($response->getStatusCode(), JsonResponse::HTTP_UNAUTHORIZED);
     }
 
     public function invalidPersonPayloadProvider(): array

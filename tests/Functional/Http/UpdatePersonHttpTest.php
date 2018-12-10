@@ -1,44 +1,35 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Tests\Functional;
+namespace App\Tests\Functional\Http;
 
-use Ramsey\Uuid\Uuid;
-use Symfony\Bundle\FrameworkBundle\Client;
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use App\Tests\Functional\AbstractFunctionalTests;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
-final class UpdatePersonHttpTest extends WebTestCase
+final class UpdatePersonHttpTest extends AbstractFunctionalTests
 {
-    /** @var Client */
-    private $client;
-
-    protected function setUp()
-    {
-        $this->client = static::createClient();
-    }
-
     public function testUpdatePersonWithSuccess()
     {
-        $randomUuid = Uuid::uuid4();
+        $client = $this->getAuthenticatedClient();
         $headers = ['content-type' => 'application/json'];
-        $payload = [
+        $client->request('PUT', sprintf('/api/person/%s', $this->personId), [], [], $headers, \json_encode([
             'name' => 'John Doe',
             'email' => 'john.doe@localhost.test',
-            'birth_date' => '10/10/1989'
-        ];
+            'birth_date' => '10/10/1989',
+        ]));
 
-        $this->client->request(
-            'PUT',
-            sprintf('/person/%s', $randomUuid->toString()),
-            [],
-            [],
-            $headers,
-            \json_encode($payload)
-        );
-
-        $response = $this->client->getResponse();
+        $response = $client->getResponse();
         $this->assertEquals($response->getStatusCode(), JsonResponse::HTTP_OK);
+    }
+
+    public function testUpdatePersonWithoutJWTTokenFails()
+    {
+        $client = $this->getUnauthenticatedClient();
+        $headers = ['content-type' => 'application/json'];
+        $client->request('PUT', sprintf('/api/person/%s', $this->personId), [], [], $headers);
+
+        $response = $client->getResponse();
+        $this->assertEquals($response->getStatusCode(), JsonResponse::HTTP_UNAUTHORIZED);
     }
 
     /**
@@ -46,19 +37,11 @@ final class UpdatePersonHttpTest extends WebTestCase
      */
     public function testUpdatePersonWithInvalidPayloadFail(array $payload)
     {
-        $randomUuid = Uuid::uuid4();
+        $client = $this->getAuthenticatedClient();
         $headers = ['content-type' => 'application/json'];
+        $client->request('PUT', sprintf('/api/person/%s', $this->personId), [], [], $headers, \json_encode($payload));
 
-        $this->client->request(
-            'PUT',
-            sprintf('/person/%s', $randomUuid->toString()),
-            [],
-            [],
-            $headers,
-            \json_encode($payload)
-        );
-
-        $this->assertEquals($this->client->getResponse()->getStatusCode(), JsonResponse::HTTP_BAD_REQUEST);
+        $this->assertEquals($client->getResponse()->getStatusCode(), JsonResponse::HTTP_BAD_REQUEST);
     }
 
     public function invalidPersonPayloadProvider(): array

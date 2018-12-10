@@ -4,8 +4,8 @@ security:
     Symfony\Component\Security\Core\User\User:
       algorithm:  plaintext
 
-    providers:
-      in_memory:
-        memory:
-          users:
-            - { name: "test@localhost.local", password: "test", roles: 'ROLE_USER' }
+  providers:
+    in_memory:
+      memory:
+        users:
+          - { name: "test@localhost.local", password: "test", roles: 'ROLE_USER' }
