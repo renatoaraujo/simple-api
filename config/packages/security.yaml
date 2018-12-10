@@ -11,12 +11,12 @@ security:
           - { name: "test", password: "test", roles: 'ROLE_USER' }
 
   firewalls:
-    login:
-      pattern:  /login
+    token:
+      pattern:  /token
       stateless: true
       anonymous: true
       json_login:
-        check_path: /api/login_check
+        check_path: /token
         success_handler: lexik_jwt_authentication.handler.authentication_success
         failure_handler: lexik_jwt_authentication.handler.authentication_failure
     api:
@@ -32,5 +32,5 @@ security:
       anonymous: true
 
   access_control:
-    - { path: ^/login, roles: ROLE_ANOUNYMOUSLY }
+    - { path: ^/token, roles: ROLE_ANOUNYMOUSLY }
     - { path: ^/api, roles: ROLE_USER }

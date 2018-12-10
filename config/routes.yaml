@@ -24,4 +24,4 @@ api_person_delete:
   controller: App\Controller\DeletePerson
 
 api_login_check:
-  path: /api/login_check
+  path: /token
